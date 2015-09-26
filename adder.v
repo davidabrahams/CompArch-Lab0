@@ -8,11 +8,11 @@
 
 module FullAdder4bit
 (
-  output[3:0] sum,  // 2's complement sum of a and b
-  output carryout,  // Carry out of the summation of a and b
-  output overflow,  // True if the calculation resulted in an overflow
-  input[3:0] a,     // First operand in 2's complement format
-  input[3:0] b      // Second operand in 2's complement format
+    output[3:0] sum,  // 2's complement sum of a and b
+    output carryout,  // Carry out of the summation of a and b
+    output overflow,  // True if the calculation resulted in an overflow
+    input[3:0] a,     // First operand in 2's complement format
+    input[3:0] b      // Second operand in 2's complement format
 );
 
     wire carry0, carry1, carry2; //declare carryout bits
@@ -66,34 +66,34 @@ module testFullAdder4bit;
         $display("%b  %b |  %b  %b  %b  | 0011  0  0", a, b, sum, carryout, overflow);
         $display("Carryout, No Overflow cases");
         $display("A  B |  Sum Cout O  | Expected");
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
+        a=4'b1110; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 1011  1  0", a, b, sum, carryout, overflow);
+        a=4'b1111; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 1000  1  0", a, b, sum, carryout, overflow);
+        a=4'b1100; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 1001  1  0", a, b, sum, carryout, overflow);
+        a=4'b1111; b=4'b1111; #1000
+        $display("%b  %b |  %b  %b  %b  | 1110  1  0", a, b, sum, carryout, overflow);
         $display("No Carryout, Overflow cases");
         $display("A  B |  Sum Cout O  | Expected");
-        a=4'b0110; b=4'b0011; #1000
+        a=4'b0101; b=4'b0110; #1000
+        $display("%b  %b |  %b  %b  %b  | 1011  0  1", a, b, sum, carryout, overflow);
+        a=4'b0111; b=4'b0011; #1000
+        $display("%b  %b |  %b  %b  %b  | 1010  0  1", a, b, sum, carryout, overflow);
+        a=4'b0001; b=4'b0111; #1000
+        $display("%b  %b |  %b  %b  %b  | 1000  0  1", a, b, sum, carryout, overflow);
+        a=4'b0111; b=4'b0010; #1000
         $display("%b  %b |  %b  %b  %b  | 1001  0  1", a, b, sum, carryout, overflow);
-        a=4'b0001; b=4'b0001; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
         $display("Carryout, Overflow cases");
         $display("A  B |  Sum Cout O  | Expected");
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-        a=4'b0000; b=4'b0000; #1000
-        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
+        a=4'b1110; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 0111  1  1", a, b, sum, carryout, overflow);
+        a=4'b1000; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
+        a=4'b1011; b=4'b1010; #1000
+        $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
+        a=4'b1001; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 0010  1  1", a, b, sum, carryout, overflow);
 
     end
 endmodule
