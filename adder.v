@@ -62,11 +62,12 @@ module testFullAdder4bit;
         $display("%b  %b |  %b  %b  %b  | 0010  0  0", a, b, sum, carryout, overflow);
         a=4'b1110; b=4'b0001; #1000
         $display("%b  %b |  %b  %b  %b  | 1111  0  0", a, b, sum, carryout, overflow);
-        a=4'b0110; b=4'b1101; #1000
-        $display("%b  %b |  %b  %b  %b  | 0011  0  0", a, b, sum, carryout, overflow);
+        a=4'b1001; b=4'b0100; #1000
+        $display("%b  %b |  %b  %b  %b  | 1101  0  0", a, b, sum, carryout, overflow);
         $display("Carryout, No Overflow cases");
         $display("A     B    |  Sum Cout O  | Expected"); //test bench        a=4'b1110; b=4'b1101; #1000
-        $display("%b  %b |  %b  %b  %b  | 1011  1  0", a, b, sum, carryout, overflow);
+        a=4'b0110; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 0011  1  0", a, b, sum, carryout, overflow);
         a=4'b1111; b=4'b1001; #1000
         $display("%b  %b |  %b  %b  %b  | 1000  1  0", a, b, sum, carryout, overflow);
         a=4'b1100; b=4'b1101; #1000
