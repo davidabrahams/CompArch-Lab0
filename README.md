@@ -11,7 +11,7 @@ Overflow can never occur when adding numbers with different signs. Overflow occu
 
 ##Waveforms
 
-Below is our waveform propagation for inputs A and B, and outputs Sum, Carryout, and Overflow. There are a number of times when Sum rapidly switches between values, because it is outputting values before all four adders have finished propagating their values. This causes temporary fluctuations in the values of our carryout and overflow. The worst delay of our circuit was for the overflow output, which for one test has a delay of 450 time units. There was a delay on most of our sum outputs, with a maximum of 350 time units.
+Below is our waveform propagation for inputs `a` and `b`, and outputs `sum`, `Cout`, and `Overflow`. There are a number of times when `sum` rapidly switches between values, because it is outputting values before all four adders have finished propagating their values. This causes temporary fluctuations in the values of our carryout and overflow. The worst delay of our circuit was for the overflow output, which for one test has a delay of 450 time units. There was a delay on most of our sum outputs, with a maximum of 350 time units.
 ![Waveform Propagation](/images/4badderWave.png)
 
 ##Testing
