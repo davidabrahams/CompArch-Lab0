@@ -42,58 +42,58 @@ module structuralFullAdder(out, carryout, a, b, carryin);
     `XOR Cout (carryout, AandB, fullAnd);
 endmodule
 
-// module testFullAdder4bit;
-//     reg[3:0] a, b;
-//     wire[3:0] sum;
-//     wire carryout, overflow;
+module testFullAdder4bit;
+    reg[3:0] a, b;
+    wire[3:0] sum;
+    wire carryout, overflow;
 
-//     //behavioralFullAdder adder (sum, carryout, a, b, carryin);
-//     FullAdder4bit fadder4 (sum, carryout, overflow, a, b);
+    //behavioralFullAdder adder (sum, carryout, a, b, carryin);
+    FullAdder4bit fadder4 (sum, carryout, overflow, a, b);
 
-//     initial begin
-//         $dumpfile("4badder.vcd"); //dump info to create wave propagation later
-//         $dumpvars(0, testFullAdder4bit);
+    initial begin
+        $dumpfile("4badder.vcd"); //dump info to create wave propagation later
+        $dumpvars(0, testFullAdder4bit);
 
-//         $display("No Carryout, No Overflow cases");
-//         $display("A     B    |  Sum Cout O  | Expected"); //test bench
-//         a=4'b0000; b=4'b0000; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
-//         a=4'b0001; b=4'b0001; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0010  0  0", a, b, sum, carryout, overflow);
-//         a=4'b1110; b=4'b0001; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1111  0  0", a, b, sum, carryout, overflow);
-//         a=4'b0110; b=4'b1101; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0011  0  0", a, b, sum, carryout, overflow);
-//         $display("Carryout, No Overflow cases");
-//         $display("A  B |  Sum Cout O  | Expected");
-//         a=4'b1110; b=4'b1101; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1011  1  0", a, b, sum, carryout, overflow);
-//         a=4'b1111; b=4'b1001; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1000  1  0", a, b, sum, carryout, overflow);
-//         a=4'b1100; b=4'b1101; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1001  1  0", a, b, sum, carryout, overflow);
-//         a=4'b1111; b=4'b1111; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1110  1  0", a, b, sum, carryout, overflow);
-//         $display("No Carryout, Overflow cases");
-//         $display("A  B |  Sum Cout O  | Expected");
-//         a=4'b0101; b=4'b0110; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1011  0  1", a, b, sum, carryout, overflow);
-//         a=4'b0111; b=4'b0011; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1010  0  1", a, b, sum, carryout, overflow);
-//         a=4'b0001; b=4'b0111; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1000  0  1", a, b, sum, carryout, overflow);
-//         a=4'b0111; b=4'b0010; #1000
-//         $display("%b  %b |  %b  %b  %b  | 1001  0  1", a, b, sum, carryout, overflow);
-//         $display("Carryout, Overflow cases");
-//         $display("A  B |  Sum Cout O  | Expected");
-//         a=4'b1110; b=4'b1001; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0111  1  1", a, b, sum, carryout, overflow);
-//         a=4'b1000; b=4'b1101; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
-//         a=4'b1011; b=4'b1010; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
-//         a=4'b1001; b=4'b1001; #1000
-//         $display("%b  %b |  %b  %b  %b  | 0010  1  1", a, b, sum, carryout, overflow);
+        $display("No Carryout, No Overflow cases");
+        $display("A     B    |  Sum Cout O  | Expected"); //test bench
+        a=4'b0000; b=4'b0000; #1000
+        $display("%b  %b |  %b  %b  %b  | 0000  0  0", a, b, sum, carryout, overflow);
+        a=4'b0001; b=4'b0001; #1000
+        $display("%b  %b |  %b  %b  %b  | 0010  0  0", a, b, sum, carryout, overflow);
+        a=4'b1110; b=4'b0001; #1000
+        $display("%b  %b |  %b  %b  %b  | 1111  0  0", a, b, sum, carryout, overflow);
+        a=4'b0110; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 0011  0  0", a, b, sum, carryout, overflow);
+        $display("Carryout, No Overflow cases");
+        $display("A  B |  Sum Cout O  | Expected");
+        a=4'b1110; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 1011  1  0", a, b, sum, carryout, overflow);
+        a=4'b1111; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 1000  1  0", a, b, sum, carryout, overflow);
+        a=4'b1100; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 1001  1  0", a, b, sum, carryout, overflow);
+        a=4'b1111; b=4'b1111; #1000
+        $display("%b  %b |  %b  %b  %b  | 1110  1  0", a, b, sum, carryout, overflow);
+        $display("No Carryout, Overflow cases");
+        $display("A  B |  Sum Cout O  | Expected");
+        a=4'b0101; b=4'b0110; #1000
+        $display("%b  %b |  %b  %b  %b  | 1011  0  1", a, b, sum, carryout, overflow);
+        a=4'b0111; b=4'b0011; #1000
+        $display("%b  %b |  %b  %b  %b  | 1010  0  1", a, b, sum, carryout, overflow);
+        a=4'b0001; b=4'b0111; #1000
+        $display("%b  %b |  %b  %b  %b  | 1000  0  1", a, b, sum, carryout, overflow);
+        a=4'b0111; b=4'b0010; #1000
+        $display("%b  %b |  %b  %b  %b  | 1001  0  1", a, b, sum, carryout, overflow);
+        $display("Carryout, Overflow cases");
+        $display("A  B |  Sum Cout O  | Expected");
+        a=4'b1110; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 0111  1  1", a, b, sum, carryout, overflow);
+        a=4'b1000; b=4'b1101; #1000
+        $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
+        a=4'b1011; b=4'b1010; #1000
+        $display("%b  %b |  %b  %b  %b  | 0101  1  1", a, b, sum, carryout, overflow);
+        a=4'b1001; b=4'b1001; #1000
+        $display("%b  %b |  %b  %b  %b  | 0010  1  1", a, b, sum, carryout, overflow);
 
-//     end
-// endmodule
+    end
+endmodule
