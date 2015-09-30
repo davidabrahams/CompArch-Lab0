@@ -18,7 +18,7 @@ module FullAdder4bit
     wire carry0, carry1, carry2; //declare carryout bits
     wire AxnB, BxS; //declare wires for overflow checking
 
-    structuralFullAdder adder0 (sum[0], carry0, a[0], b[0], 0); //declare 4 adders we use
+    structuralFullAdder adder0 (sum[0], carry0, a[0], b[0], 1'b0); //declare 4 adders we use
     structuralFullAdder adder1 (sum[1], carry1, a[1], b[1], carry0);
     structuralFullAdder adder2 (sum[2], carry2, a[2], b[2], carry1);
     structuralFullAdder adder3 (sum[3], carryout, a[3], b[3], carry2);
@@ -65,8 +65,7 @@ module testFullAdder4bit;
         a=4'b0110; b=4'b1101; #1000
         $display("%b  %b |  %b  %b  %b  | 0011  0  0", a, b, sum, carryout, overflow);
         $display("Carryout, No Overflow cases");
-        $display("A  B |  Sum Cout O  | Expected");
-        a=4'b1110; b=4'b1101; #1000
+        $display("A     B    |  Sum Cout O  | Expected"); //test bench        a=4'b1110; b=4'b1101; #1000
         $display("%b  %b |  %b  %b  %b  | 1011  1  0", a, b, sum, carryout, overflow);
         a=4'b1111; b=4'b1001; #1000
         $display("%b  %b |  %b  %b  %b  | 1000  1  0", a, b, sum, carryout, overflow);
@@ -75,7 +74,7 @@ module testFullAdder4bit;
         a=4'b1111; b=4'b1111; #1000
         $display("%b  %b |  %b  %b  %b  | 1110  1  0", a, b, sum, carryout, overflow);
         $display("No Carryout, Overflow cases");
-        $display("A  B |  Sum Cout O  | Expected");
+        $display("A     B    |  Sum Cout O  | Expected"); //test bench        a=4'b1110; b=4'b1101; #1000
         a=4'b0101; b=4'b0110; #1000
         $display("%b  %b |  %b  %b  %b  | 1011  0  1", a, b, sum, carryout, overflow);
         a=4'b0111; b=4'b0011; #1000
@@ -85,7 +84,7 @@ module testFullAdder4bit;
         a=4'b0111; b=4'b0010; #1000
         $display("%b  %b |  %b  %b  %b  | 1001  0  1", a, b, sum, carryout, overflow);
         $display("Carryout, Overflow cases");
-        $display("A  B |  Sum Cout O  | Expected");
+        $display("A     B    |  Sum Cout O  | Expected"); //test bench        a=4'b1110; b=4'b1101; #1000
         a=4'b1110; b=4'b1001; #1000
         $display("%b  %b |  %b  %b  %b  | 0111  1  1", a, b, sum, carryout, overflow);
         a=4'b1000; b=4'b1101; #1000
