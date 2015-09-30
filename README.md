@@ -5,7 +5,7 @@
 
 ![Circuit design](/images/circuit_image.jpg)
 
-When adding together multiple bit numbers, you start at the least significant bit, add them together, and then add together the next most significant bits of the numbers and the carryout of the first addition. You then repeat this process until you have reached the most significant bit. We designed a circuit to follow this process by putting four single-bit full adders together, connecting the carryout from one adder to the carryin of the next one, and outputting each result to a bit of our `sum`.
+When adding together multiple bit numbers, you start at the least significant bit and add them together. Then add together the next most significant bit of the numbers and the carryout of the first addition. You then repeat this process until you have reached the most significant bit. We designed a circuit to follow this process by putting four single-bit full adders together, connecting the carryout from one adder to the carryin of the next one, and outputting each result to a bit of our `sum`.
 
 Overflow can never occur when adding numbers with different signs. Overflow occurs when the sign bit of the result does not match the sign of the two inputs. Therefore, you can calculate overflow by checking if `a[3]` and `b[3]` are the same (an XNOR), and `sum[3]` is different from `a[3]` or `b[3]` (an XOR)).
 
